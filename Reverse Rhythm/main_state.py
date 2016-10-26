@@ -68,7 +68,7 @@ class Note():
         self.note_1 = load_image('Note_1.png')
         self.note_2 = load_image('Note_2.png')
         self.note_3 = load_image('Note_3.png')
-        self.y = 1000
+        self.y = 3000
         self.frame = 0
 
     def draw(self):
