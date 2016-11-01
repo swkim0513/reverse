@@ -158,7 +158,7 @@ def handle_events():
             update_canvas()
             delay(0.05)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_k:
-            x = 315
+            x = 310
             effect_1.draw()
             update_canvas()
             delay(0.05)
