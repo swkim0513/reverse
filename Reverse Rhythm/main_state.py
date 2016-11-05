@@ -22,7 +22,7 @@ class Fermion():
     def __init__(self):
         self.image = load_image('fermion.png')
     def draw(self):
-        self.image.clip_draw(0,0,800,950,800,550)
+        self.image.clip_draw(0,0,1200,950,600,550)
     def update(self):
         pass
 
@@ -35,7 +35,7 @@ class Life_gauge():
         pass
 class Machine_1():
     def __init__(self):
-        self.image = load_image('machine_1.png')
+        self.image = load_image('machine_2.png')
     def draw(self):
         self.image.clip_draw(0,0,400,950,200,550)
     def update(self):
@@ -178,10 +178,9 @@ def draw():
 
     clear_canvas()
 
-
-
-    machine_1.draw()
     fermion.draw()
+    machine_1.draw()
+
     note.draw()
     machine_key.draw()
     score_gauge.draw()
