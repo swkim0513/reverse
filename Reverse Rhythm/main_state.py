@@ -72,6 +72,7 @@ class Note():
         self.frame = 0
 
     def draw(self):
+        #노트제작구간
         self.note_1.clip_draw(0,0,60,30,37,self.y)
         self.note_1.clip_draw(0,0,50,30,87,self.y + 500)
         self.note_1.clip_draw(0,0,60,30,140,self.y + 1000)
@@ -141,32 +142,32 @@ def handle_events():
             x = 37
             effect_1.draw()
             update_canvas()
-            delay(0.05)
+            delay(0.01)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_d:
             x = 90
             effect_1.draw()
             update_canvas()
-            delay(0.05)
+            delay(0.01)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_f:
             x = 140
             effect_1.draw()
             update_canvas()
-            delay(0.05)
+            delay(0.01)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_j:
             x = 267
             effect_1.draw()
             update_canvas()
-            delay(0.05)
+            delay(0.01)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_k:
             x = 310
             effect_1.draw()
             update_canvas()
-            delay(0.05)
+            delay(0.01)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_l:
             x = 365
             effect_1.draw()
             update_canvas()
-            delay(0.05)
+            delay(0.01)
 
 def update():
     note.update()
@@ -182,6 +183,7 @@ def draw():
     machine_1.draw()
 
     note.draw()
+
     machine_key.draw()
     score_gauge.draw()
     life_gauge.draw()
