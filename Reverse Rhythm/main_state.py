@@ -48,9 +48,9 @@ class Machine_key():
 class Effect_1():
     global x
     def __init__(self):
-        self.image = load_image('Effect_2.png')
+        self.image = load_image('effect_3.png')
     def draw(self):
-        self.image.clip_draw(0,0,40,50,x,40)
+        self.image.clip_draw(0,0,60,60,x,40)
     def update(self):
         pass
 
@@ -80,6 +80,25 @@ class Note():
         self.note_3.clip_draw(0,0,60,30,266,self.y + 2000)
         self.note_3.clip_draw(0,0,50,30,320,self.y + 2500)
         self.note_3.clip_draw(0,0,60,30,370,self.y + 3000)
+        #임시노트
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 3500)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 4000)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 4500)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 5000)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 5500)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 6000)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 6500)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 7000)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 7500)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 8000)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 8500)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 9000)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 9500)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 10000)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 10500)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 11000)
+        self.note_1.clip_draw(0, 0, 60, 30, 37, self.y + 11500)
+
     def update(self):
         self.y -= 40
         delay(0.07)
