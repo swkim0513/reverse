@@ -12,7 +12,7 @@ logo_time = 0.0
 def enter():
     global image
     open_canvas(1200,950)
-    image = load_image('logo.png')
+    image = load_image('title_2.png')
 
 def exit():
     global image
@@ -22,7 +22,7 @@ def exit():
 def update():
     global logo_time
 
-    if(logo_time > 2.0):
+    if(logo_time > 3.0):
         logo_time = 0
         # game_framework.quit()
         game_framework.push_state(title_state)
