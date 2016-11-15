@@ -1,3 +1,0 @@
-effect upgrade
-
-link picturejson
