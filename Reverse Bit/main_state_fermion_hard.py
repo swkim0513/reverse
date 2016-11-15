@@ -6,7 +6,7 @@ from pico2d import *
 
 import threading
 import game_framework
-import title_state_easy
+import title_state_hard
 import result_state
 
 from note_1 import Note_1
@@ -25,7 +25,7 @@ from fermion import Fermion
 
 
 
-name = "MainState_fermion_easy"
+name = "MainState_fermion_hard"
 
 note_1s = None
 note_2 = None
@@ -168,7 +168,7 @@ def handle_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            game_framework.change_state(title_state_easy)
+            game_framework.change_state(title_state_hard)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
             x = 203
             effect_1.draw()
@@ -183,12 +183,12 @@ def handle_events():
                 update_canvas()
                 delay(0.01)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_s:
-            x = 37
+            x = 370
             effect_1.draw()
             update_canvas()
             delay(0.01)
-            for note_1 in note_1s:
-             if collide(machine, note_1):
+            for note_7 in note_7s:
+             if collide(machine, note_7):
                 effect_2.draw()
                 #note_1.remove()
                 score_1 += 100
@@ -196,47 +196,6 @@ def handle_events():
                 update_canvas()
                 delay(0.01)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_d:
-            x = 87
-            effect_1.draw()
-            update_canvas()
-            delay(0.01)
-            for note_2 in note_2s:
-             if collide(machine, note_2):
-                effect_2.draw()
-                #note_1.remove()
-                score_1 += 100
-                print(score_1)
-                update_canvas()
-                delay(0.01)
-
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_f:
-            x = 140
-            effect_1.draw()
-            update_canvas()
-            delay(0.01)
-            for note_3 in note_3s:
-             if collide(machine, note_3):
-                effect_2.draw()
-                #note_1.remove()
-                score_1 += 100
-                print(score_1)
-                update_canvas()
-                delay(0.01)
-
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_j:
-            x = 266
-            effect_1.draw()
-            update_canvas()
-            delay(0.01)
-            for note_5 in note_5s:
-             if collide(machine, note_5):
-                effect_2.draw()
-                #note_1.remove()
-                score_1 += 100
-                print(score_1)
-                update_canvas()
-                delay(0.01)
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_k:
             x = 320
             effect_1.draw()
             update_canvas()
@@ -249,13 +208,54 @@ def handle_events():
                 print(score_1)
                 update_canvas()
                 delay(0.01)
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_l:
-            x = 370
+
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_f:
+            x = 266
             effect_1.draw()
             update_canvas()
             delay(0.01)
-            for note_7 in note_7s:
-             if collide(machine, note_7):
+            for note_5 in note_5s:
+             if collide(machine, note_5):
+                effect_2.draw()
+                #note_1.remove()
+                score_1 += 100
+                print(score_1)
+                update_canvas()
+                delay(0.01)
+
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_j:
+            x = 140
+            effect_1.draw()
+            update_canvas()
+            delay(0.01)
+            for note_3 in note_3s:
+             if collide(machine, note_3):
+                effect_2.draw()
+                #note_1.remove()
+                score_1 += 100
+                print(score_1)
+                update_canvas()
+                delay(0.01)
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_k:
+            x = 87
+            effect_1.draw()
+            update_canvas()
+            delay(0.01)
+            for note_2 in note_2s:
+             if collide(machine, note_2):
+                effect_2.draw()
+                #note_1.remove()
+                score_1 += 100
+                print(score_1)
+                update_canvas()
+                delay(0.01)
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_l:
+            x = 37
+            effect_1.draw()
+            update_canvas()
+            delay(0.01)
+            for note_1 in note_1s:
+             if collide(machine, note_1):
                 effect_2.draw()
                 #note_1.remove()
                 score_1 += 100
@@ -353,8 +353,3 @@ def draw():
 
 
     update_canvas()
-
-
-
-
-

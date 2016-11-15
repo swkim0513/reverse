@@ -21,11 +21,11 @@ from machine_key import Machine_key
 from machine import Machine
 from score_gauge import Score_gauge
 from life_gauge import Life_gauge
-from fermion import Fermion
+from pdm import Pdm
 
 
 
-name = "MainState_fermion_easy"
+name = "MainState_pdm_easy"
 
 note_1s = None
 note_2 = None
@@ -33,7 +33,7 @@ note_3 = None
 machine_key = None
 effect_1 = None
 score_gauge = None
-fermion = None
+pdm = None
 life_gauge = None
 machine = None
 playtime = 0.0
@@ -75,7 +75,7 @@ class Plz():
 
 def create_world():
     global note_1s,note_2s,note_3s,note_4s,note_5s,note_6s,note_7s
-    global machine_key,effect_1,effect_2,score_gauge,fermion, life_gauge, machine,score
+    global machine_key,effect_1,effect_2,score_gauge,pdm, life_gauge, machine,score
     global plz
     machine = Machine()
     note_1s = [Note_1() for i in range(10)]
@@ -90,7 +90,7 @@ def create_world():
     effect_1 = Effect_1()
     effect_2 = Effect_2()
     score_gauge = Score_gauge()
-    fermion = Fermion()
+    pdm = Pdm()
     life_gauge = Life_gauge()
     plz = Plz()
 
@@ -98,7 +98,7 @@ def create_world():
 
 def destroy_world():
     global note_1s, note_2s, note_3s,note_4s,note_5s,note_6s,note_7s
-    global machine_key, effect_1, score_gauge, fermion, life_gauge, machine
+    global machine_key, effect_1, score_gauge, pdm, life_gauge, machine
 
     del(note_1s)
     del(note_2s)
@@ -110,7 +110,7 @@ def destroy_world():
     del(machine_key)
     del(effect_1)
     del(score_gauge)
-    del(fermion)
+    del(pdm)
     del(life_gauge)
     del(machine)
 
@@ -265,7 +265,7 @@ def handle_events():
 
 def update():
     global note_1,note_1s, note_2,note_2s, note_3,note_3s,note_4,note_4s,note_5,note_5s, note_6,note_6s,note_7,note_7s
-    global machine_key, effect_1,effect_2, score_gauge, fermion, life_gauge, machine_1
+    global machine_key, effect_1,effect_2, score_gauge, pdm, life_gauge, machine_1
     global playtime
 
     for note_1 in note_1s:
@@ -302,7 +302,7 @@ def draw():
     global plz
     clear_canvas()
 
-    fermion.draw()
+    pdm.draw()
     machine.draw()
     #machine.draw_bb()
 
@@ -353,8 +353,3 @@ def draw():
 
 
     update_canvas()
-
-
-
-
-

@@ -26,7 +26,7 @@ class Note_6:
 
 
     def get_bb(self):
-        return self.x - 10, self.y - 50, self.x +10,self.y+50
+        return self.x - 10, self.y - 20, self.x +10,self.y+20
 
 
     def draw_bb(self):

@@ -1,5 +1,5 @@
 import game_framework
-import title_state
+import difficulty_state
 
 from pico2d import *
 
@@ -22,10 +22,10 @@ def exit():
 def update():
     global logo_time
 
-    if(logo_time > 3.0):
+    if(logo_time > 2.0):
         logo_time = 0
         # game_framework.quit()
-        game_framework.push_state(title_state)
+        game_framework.push_state(difficulty_state)
     delay(0.01)
     logo_time += 0.01
 

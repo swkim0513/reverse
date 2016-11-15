@@ -1,19 +1,19 @@
-#f-key
 from pico2d import *
 import random
 
-class Note_3:
+
+class Note_5_extreme:
 
     image = None;
 
 
     def __init__(self):
-        self.x = 140
-        self.y = random.randint(3000,50000)
-        if Note_3.image == None:
-            Note_3.image = load_image('note_1.png')
+        self.x = 266
+        self.y = random.randint(-30000,-1000)
+        if Note_5_extreme.image == None:
+            Note_5_extreme.image = load_image('note_3.png')
     def update(self):
-        self.y -= 10
+        self.y += 10
         delay(0.0001)
 
     #def remove(self):
@@ -24,7 +24,7 @@ class Note_3:
 
 
     def get_bb(self):
-        return self.x - 10, self.y - 20, self.x +10,self.y + 20
+        return self.x - 10, self.y - 20, self.x +10,self.y+20
 
 
     def draw_bb(self):

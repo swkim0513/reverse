@@ -5,7 +5,7 @@ import os
 from pico2d import *
 
 import game_framework
-import title_state
+import title_state_easy
 import result_state
 
 

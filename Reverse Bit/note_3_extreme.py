@@ -1,19 +1,18 @@
-#f-key
 from pico2d import *
 import random
 
-class Note_3:
+class Note_3_extreme:
 
     image = None;
 
 
     def __init__(self):
         self.x = 140
-        self.y = random.randint(3000,50000)
-        if Note_3.image == None:
-            Note_3.image = load_image('note_1.png')
+        self.y = random.randint(-30000,-1000)
+        if Note_3_extreme.image == None:
+            Note_3_extreme.image = load_image('note_1.png')
     def update(self):
-        self.y -= 10
+        self.y += 10
         delay(0.0001)
 
     #def remove(self):

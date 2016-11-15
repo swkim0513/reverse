@@ -11,7 +11,7 @@ class Note_4:
 
     def __init__(self):
         self.x = 203
-        self.y = random.randint(3000,50000)
+        self.y = random.randint(3000,30000)
         if Note_4.image == None:
             Note_4.image = load_image('note_2.png')
     def update(self):
@@ -26,7 +26,7 @@ class Note_4:
 
 
     def get_bb(self):
-        return self.x - 10, self.y - 50, self.x +10,self.y+50
+        return self.x - 10, self.y - 20, self.x +10,self.y+20
 
 
     def draw_bb(self):
