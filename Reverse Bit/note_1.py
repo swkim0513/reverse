@@ -10,7 +10,7 @@ class Note_1:
 
     def __init__(self):
         self.x = 37
-        self.y = random.randint(3000,10000)
+        self.y = random.randint(3000,50000)
         if Note_1.image == None:
             Note_1.image = load_image('note_1.png')
     def update(self):

@@ -25,7 +25,7 @@ from fermion import Fermion
 
 
 
-name = "MainState"
+name = "MainState_fermion_easy"
 
 note_1s = None
 note_2 = None
@@ -284,7 +284,7 @@ def update():
         note_7.update()
 
 
-    if (playtime > 40.0):
+    if (playtime > 400.0):
         playtime = 0
         game_framework.push_state(result_state)
     delay(0.01)
