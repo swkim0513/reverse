@@ -1,0 +1,15 @@
+Tue Nov 15 22:54:24 2016 +0900 3rd
+Tue Nov 15 18:42:34 2016 +0900 adjust
+Tue Nov 15 18:19:01 2016 +0900 name change
+Tue Nov 15 18:17:25 2016 +0900 name change
+Tue Nov 15 18:15:23 2016 +0900 add code
+Mon Nov 14 23:43:44 2016 +0900 list
+Fri Nov 11 10:58:40 2016 +0900 code upgrade
+Thu Nov 10 14:48:50 2016 +0900 better framework
+Wed Nov 9 15:42:43 2016 +0900 code upgrade
+Sat Nov 5 19:11:20 2016 +0900 photo upgrade
+Fri Nov 4 10:58:33 2016 +0900 an
+Wed Nov 2 15:26:47 2016 +0900 ano1
+Tue Nov 1 13:57:19 2016 +0900 ano
+Wed Oct 26 15:35:42 2016 +0900 something new
+Thu Oct 20 21:18:48 2016 +0900 Reverse Rhythm
