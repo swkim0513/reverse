@@ -15,6 +15,7 @@ class Note_1:
             Note_1.image = load_image('note_1.png')
     def update(self):
         self.y -= 10
+        self.frametime = 0
         delay(0.0001)
 
     #def remove(self):

@@ -2,4 +2,4 @@ effect upgrade
 
 link picturejson
 
-code upgrade
+code upgrade - how to express frame time
