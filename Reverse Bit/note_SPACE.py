@@ -1,17 +1,19 @@
-#d-key
+#space-key
+
 from pico2d import *
 import random
 
-class Note_2:
+
+class Note_SPACE:
 
     image = None;
 
 
     def __init__(self):
-        self.x = 87
-        self.y = random.randint(3000,50000)
-        if Note_2.image == None:
-            Note_2.image = load_image('note_1.png')
+        self.x = 203
+        self.y = random.randint(3000,30000)
+        if Note_SPACE.image == None:
+            Note_SPACE.image = load_image('note_2.png')
     def update(self):
         self.y -= 10
         delay(0.0001)
@@ -20,7 +22,7 @@ class Note_2:
         #self.y = -1000
 
     def draw(self):
-        self.image.clip_draw(0,0,50,30,self.x,self.y)
+        self.image.clip_draw(0,0,60,30,self.x,self.y)
 
 
     def get_bb(self):

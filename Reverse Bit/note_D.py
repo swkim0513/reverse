@@ -1,28 +1,26 @@
-#s-key
+#d-key
 from pico2d import *
 import random
 
-
-class Note_1:
+class Note_D:
 
     image = None;
 
 
     def __init__(self):
-        self.x = 37
+        self.x = 87
         self.y = random.randint(3000,50000)
-        if Note_1.image == None:
-            Note_1.image = load_image('note_1.png')
+        if Note_D.image == None:
+            Note_D.image = load_image('note_1.png')
     def update(self):
         self.y -= 10
-        self.frametime = 0
         delay(0.0001)
 
     #def remove(self):
         #self.y = -1000
 
     def draw(self):
-        self.image.clip_draw(0,0,60,30,self.x,self.y)
+        self.image.clip_draw(0,0,50,30,self.x,self.y)
 
 
     def get_bb(self):

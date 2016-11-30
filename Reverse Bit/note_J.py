@@ -1,19 +1,19 @@
-#l-key
+#j-key
 
 from pico2d import *
 import random
 
 
-class Note_7:
+class Note_J:
 
     image = None;
 
 
     def __init__(self):
-        self.x = 370
+        self.x = 266
         self.y = random.randint(3000,50000)
-        if Note_7.image == None:
-            Note_7.image = load_image('note_1.png')
+        if Note_J.image == None:
+            Note_J.image = load_image('note_3.png')
     def update(self):
         self.y -= 10
         delay(0.0001)
