@@ -74,7 +74,7 @@ class Plz():
 
 
 def create_world():
-    global note_1s,note_2s,note_3s,note_4s,note_5s,note_6s,note_7s
+    global note_Ss,note_Ds,note_Fs,note_SPACEs,note_Js,note_Ks,note_Ls
     global machine_key,effect_1,effect_2,score_gauge,fermion, life_gauge, machine,score
     global plz
     machine = Machine()
