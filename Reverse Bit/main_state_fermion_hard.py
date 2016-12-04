@@ -174,7 +174,7 @@ def handle_events():
             effect_1.draw()
             update_canvas()
             delay(0.01)
-            for note_4 in note_4s:
+            for note_SPACE in note_SPACEs:
              if collide(machine, note_SPACE):
                 effect_2.draw()
                 #note_1.remove()
