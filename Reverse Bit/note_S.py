@@ -11,6 +11,7 @@ class Note_S:
     def __init__(self):
         self.x = 37
         self.y = random.randint(3000,50000)
+
         if Note_S.image == None:
             Note_S.image = load_image('note_1.png')
     def update(self):
@@ -18,8 +19,6 @@ class Note_S:
         self.frametime = 0
         delay(0.0001)
 
-    #def remove(self):
-        #self.y = -1000
 
     def draw(self):
         self.image.clip_draw(0,0,60,30,self.x,self.y)
