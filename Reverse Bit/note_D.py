@@ -16,8 +16,6 @@ class Note_D:
         self.y -= 10
         delay(0.0001)
 
-    #def remove(self):
-        #self.y = -1000
 
     def draw(self):
         self.image.clip_draw(0,0,50,30,self.x,self.y)
