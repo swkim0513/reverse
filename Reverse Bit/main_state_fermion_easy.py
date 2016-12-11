@@ -348,7 +348,7 @@ def draw():
 
     score_gauge.draw()
     life_gauge.draw()
-    #font.draw(50, 550, 'Ranking', (255, 0, 0))
+
     #plz.draw()
 
 
