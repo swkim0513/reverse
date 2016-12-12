@@ -349,7 +349,7 @@ def draw():
     score_gauge.draw()
     life_gauge.draw()
 
-    #plz.draw()
+
 
 
     update_canvas()
