@@ -10,3 +10,5 @@ class Fermion():
         self.image.clip_draw(0,0,1200,1100,600,550)
     def update(self):
         pass
+
+    #plus frame time
