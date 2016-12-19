@@ -12,3 +12,4 @@ class Fermion():
         pass
 
     #plus frame time
+    #plus json
