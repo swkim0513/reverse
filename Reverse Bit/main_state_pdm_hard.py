@@ -8,6 +8,7 @@ import threading
 import game_framework
 import title_state_hard
 import result_state
+import frametime
 
 from note_S import Note_S
 from note_D import Note_D
@@ -85,6 +86,9 @@ def create_world():
     note_Js = [Note_J() for i in range(10)]
     note_Ks = [Note_K() for i in range(10)]
     note_Ls = [Note_L() for i in range(10)]
+
+    frametime.frame_time = frametime.get_frame_time()
+    frametime.current_time += frametime.frame_time
 
     machine_key = Machine_key()
     effect_1 = Effect_1()
@@ -267,6 +271,9 @@ def update():
     global note_S,note_Ss, note_D,note_Ds, note_F,note_Fs,note_SPACE,note_SPACEs,note_J,note_Js, note_K,note_Ks,note_L,note_Ls
     global machine_key, effect_1,effect_2, score_gauge, pdm, life_gauge, machine_1
     global playtime
+
+    frametime.frame_time = frametime.get_frame_time()
+    frametime.current_time += frametime.frame_time
 
     for note_S in note_Ss:
         note_S.update()

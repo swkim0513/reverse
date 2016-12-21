@@ -79,13 +79,14 @@ def create_world():
     global machine_key,effect_1,effect_2,score_gauge,fermion, life_gauge, machine,score
     global plz
     machine = Machine()
+    note_Ls = [Note_L() for i in range(10)]
     note_Ss = [Note_S() for i in range(15)]
     note_Ds = [Note_D() for i in range(10)]
     note_Fs = [Note_F() for i in range(10)]
     note_SPACEs = [Note_SPACE() for i in range(10)]
     note_Js = [Note_J() for i in range(10)]
     note_Ks = [Note_K() for i in range(10)]
-    note_Ls = [Note_L() for i in range(10)]
+
 
     frametime.frame_time = frametime.get_frame_time()
     frametime.current_time += frametime.frame_time
@@ -344,7 +345,7 @@ def draw():
     #for note_6 in note_6s:
         #note_6.draw_bb()
 
-    for note_7 in note_Ls:
+    for note_L in note_Ls:
         note_L.draw()
     #for note_7 in note_7s:
        # note_7.draw_bb()
