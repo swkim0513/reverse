@@ -9,6 +9,7 @@ import game_framework
 import title_state_hard
 import result_state
 import frametime
+import Fermion_Note
 
 from note_S import Note_S
 from note_D import Note_D
@@ -79,6 +80,9 @@ def create_world():
     global machine_key,effect_1,effect_2,score_gauge,fermion, life_gauge, machine,score
     global plz
     machine = Machine()
+
+    Fermion_Note.note_reset()
+
     note_Ss = [Note_S() for i in range(15)]
     note_Ds = [Note_D() for i in range(10)]
     note_Fs = [Note_F() for i in range(10)]

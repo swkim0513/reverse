@@ -1,5 +1,11 @@
 from pico2d import *
 import random
+import frametime
+import Fermion_Note
+import Pdm_Note
+import title_num
+
+y_change = 0
 
 class Note_2_extreme:
 
@@ -7,19 +13,33 @@ class Note_2_extreme:
 
 
     def __init__(self):
+        global y_change
         self.x = 87
-        self.y = random.randint(-30000,-1000)
+        if (title_num.num == 0):
+            if (Fermion_Note.note_dnum < Fermion_Note.note_d_size):
+                self.y = Fermion_Note.note_dy[Fermion_Note.note_dnum] * -1
+                Fermion_Note.note_dnum += 1
+            else:
+                self.y = 0
+        elif (title_num.num == 1):
+            if (Pdm_Note.note_dnum < Pdm_Note.note_d_size):
+                self.y = Pdm_Note.note_dy[Pdm_Note.note_dnum] * -1
+                Pdm_Note.note_snum += 1
+            else:
+                self.y = 0
         if Note_2_extreme.image == None:
             Note_2_extreme.image = load_image('note_1.png')
     def update(self):
-        self.y += 10
+        distance = frametime.RUN_SPEED_PPS * frametime.frame_time
+        self.y += (distance * 4)
+        print(self.y)
         delay(0.0001)
 
     #def remove(self):
         #self.y = -1000
 
     def draw(self):
-        self.image.clip_draw(0,0,50,30,self.x,self.y)
+        self.image.clip_draw(0,0,60,30,self.x,self.y)
 
 
     def get_bb(self):

@@ -8,6 +8,8 @@ import threading
 import game_framework
 import title_state_extreme
 import result_state
+import frametime
+import Pdm_Note
 
 from note_1_extreme import Note_1_extreme
 from note_2_extreme import Note_2_extreme
@@ -82,6 +84,9 @@ def create_world():
     global machine_key_extreme,effect_1,effect_2,score_gauge,pdm, life_gauge, machine_extreme,score
     global plz
     machine_extreme = Machine_extreme()
+
+    Pdm_Note.note_reset()
+
     note_1s_extreme = [Note_1_extreme() for i in range(10)]
     note_2s_extreme = [Note_2_extreme() for i in range(10)]
     note_3s_extreme = [Note_3_extreme() for i in range(10)]
@@ -89,6 +94,9 @@ def create_world():
     note_5s_extreme = [Note_5_extreme() for i in range(10)]
     note_6s_extreme = [Note_6_extreme() for i in range(10)]
     note_7s_extreme = [Note_7_extreme() for i in range(10)]
+
+    frametime.frame_time = frametime.get_frame_time()
+    frametime.current_time += frametime.frame_time
 
     machine_key_extreme = Machine_key_extreme()
     effect_1 = Effect_1()
@@ -272,6 +280,9 @@ def update():
     global note_4_extreme,note_4s_extreme,note_5_extreme,note_5s_extreme, note_6_extreme,note_6s_extreme,note_7_extreme,note_7s_extreme
     global machine_key_extreme, effect_1,effect_2, score_gauge, pdm, life_gauge, machine_1_extreme
     global playtime
+
+    frametime.frame_time = frametime.get_frame_time()
+    frametime.current_time += frametime.frame_time
 
     for note_1_extreme in note_1s_extreme:
         note_1_extreme.update()

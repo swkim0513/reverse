@@ -2,6 +2,7 @@ import game_framework
 import main_state_fermion_extreme
 import main_state_pdm_extreme
 import difficulty_state
+import title_num
 
 from pico2d import *
 
@@ -45,8 +46,10 @@ def handle_events():
             elif(event.type) == (SDL_MOUSEBUTTONDOWN):
                 x,y = event.x,950 - event.y
                 if(y>475):
+                    title_num.num = 0
                     game_framework.change_state(main_state_fermion_extreme)
                 elif(y<475):
+                    title_num.num = 1
                     game_framework.change_state(main_state_pdm_extreme)
 
 

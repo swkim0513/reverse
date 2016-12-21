@@ -24,3 +24,15 @@ note_sp_size = 10
 note_j_size = 10
 note_k_size = 10
 note_l_size = 10
+
+def note_reset():
+    global note_snum,note_dnum,note_fnum,note_spnum,note_jnum,note_knum,note_lnum
+    note_snum = 0
+    note_dnum = 0
+    note_fnum = 0
+    note_spnum = 0
+    note_jnum = 0
+    note_knum = 0
+    note_lnum = 0
+
+
