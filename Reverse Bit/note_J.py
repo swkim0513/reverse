@@ -35,7 +35,7 @@ class Note_J:
             Note_J.image = load_image('note_3.png')
     def update(self):
         distance = frametime.RUN_SPEED_PPS * frametime.frame_time
-        self.y -= (distance * 3)
+        self.y -= (distance * 4)
 
 
 
@@ -48,7 +48,7 @@ class Note_J:
 
 
     def get_bb(self):
-        return self.x - 10, self.y - 20, self.x +10,self.y+20
+        return self.x - 10, self.y - 30, self.x +10,self.y+30
 
 
     def draw_bb(self):

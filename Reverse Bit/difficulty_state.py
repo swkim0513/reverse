@@ -3,27 +3,34 @@ import title_state_easy
 import title_state_hard
 import title_state_extreme
 
+
 from pico2d import *
 
+from music import Music
 
 name = "DifficultyState"
 easy = None
 hard = None
 extreme = None
+music = None
 
 
 def enter():
-    global easy,hard,extreme,lite
+    global easy,hard,extreme,lite,music
     lite = load_image('lite_2.png')
     easy = load_image('easy.png')
     hard = load_image('hard.png')
     extreme = load_image('extreme.png')
+    music = Music()
+
 def exit():
     global easy,hard,extreme,lite
     del(easy)
     del(hard)
     del(extreme)
     del(lite)
+
+
 
 def handle_events():
     events = get_events()

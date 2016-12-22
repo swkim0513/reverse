@@ -10,6 +10,7 @@ import title_state_hard
 import result_state
 import frametime
 import Fermion_Note
+import result_score
 
 from note_S import Note_S
 from note_D import Note_D
@@ -24,6 +25,7 @@ from machine import Machine
 from score_gauge import Score_gauge
 from life_gauge import Life_gauge
 from fermion import Fermion
+
 
 
 
@@ -73,23 +75,29 @@ class Plz():
         pass
     def draw(self):
         font.draw('ENCR10B.TTF','Ranking', (255, 0, 0))
+class Score:
+    global score_1
+    sc = 100
+    def draw(self):
+        font.draw(500, 50, 'SCORE : %8d' % score_1, (255, 255, 255))
 
 
 def create_world():
     global note_Ss,note_Ds,note_Fs,note_SPACEs,note_Js,note_Ks,note_Ls
     global machine_key,effect_1,effect_2,score_gauge,fermion, life_gauge, machine,score
-    global plz
+    global plz,score
+    score = Score()
     machine = Machine()
 
     Fermion_Note.note_reset()
 
-    note_Ss = [Note_S() for i in range(15)]
-    note_Ds = [Note_D() for i in range(10)]
-    note_Fs = [Note_F() for i in range(10)]
-    note_SPACEs = [Note_SPACE() for i in range(10)]
-    note_Js = [Note_J() for i in range(10)]
-    note_Ks = [Note_K() for i in range(10)]
-    note_Ls = [Note_L() for i in range(10)]
+    note_Ss = [Note_S() for i in range(Fermion_Note.note_s_size)]
+    note_Ds = [Note_D() for i in range(Fermion_Note.note_d_size)]
+    note_Fs = [Note_F() for i in range(Fermion_Note.note_f_size)]
+    note_SPACEs = [Note_SPACE() for i in range(Fermion_Note.note_sp_size)]
+    note_Js = [Note_J() for i in range(Fermion_Note.note_j_size)]
+    note_Ks = [Note_K() for i in range(Fermion_Note.note_k_size)]
+    note_Ls = [Note_L() for i in range(Fermion_Note.note_l_size)]
 
     frametime.frame_time = frametime.get_frame_time()
     frametime.current_time += frametime.frame_time
@@ -140,15 +148,18 @@ def enter():
     global plz
     create_world()
     plz = Plz()
-    font = load_font('ENCR10B.TTF',30)
+    font = load_font('ENCR10B.TTF',50)
 
 
 
 
 
 def exit():
+    global score_1,result
     destroy_world()
-    #del(font)
+    result_score.result = score_1
+    score_1 = 0
+    del(font)
 
 def pause():
     pass
@@ -295,7 +306,7 @@ def update():
         note_L.update()
 
 
-    if (playtime > 400.0):
+    if (playtime > 300.0):
         playtime = 0
         game_framework.push_state(result_state)
     delay(0.01)
@@ -313,6 +324,7 @@ def draw():
     global plz
     clear_canvas()
 
+    life_gauge.draw()
     fermion.draw()
     machine.draw()
     #machine.draw_bb()
@@ -358,9 +370,10 @@ def draw():
     machine_key.draw()
 
     score_gauge.draw()
-    life_gauge.draw()
+
     #font.draw(50, 550, 'Ranking', (255, 0, 0))
     #plz.draw()
+    score.draw()
 
 
     update_canvas()

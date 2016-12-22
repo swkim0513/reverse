@@ -87,13 +87,13 @@ def create_world():
 
     Pdm_Note.note_reset()
 
-    note_1s_extreme = [Note_1_extreme() for i in range(10)]
-    note_2s_extreme = [Note_2_extreme() for i in range(10)]
-    note_3s_extreme = [Note_3_extreme() for i in range(10)]
-    note_4s_extreme = [Note_4_extreme() for i in range(10)]
-    note_5s_extreme = [Note_5_extreme() for i in range(10)]
-    note_6s_extreme = [Note_6_extreme() for i in range(10)]
-    note_7s_extreme = [Note_7_extreme() for i in range(10)]
+    note_1s_extreme = [Note_1_extreme() for i in range(Pdm_Note.note_s_size)]
+    note_2s_extreme = [Note_2_extreme() for i in range(Pdm_Note.note_d_size)]
+    note_3s_extreme = [Note_3_extreme() for i in range(Pdm_Note.note_f_size)]
+    note_4s_extreme = [Note_4_extreme() for i in range(Pdm_Note.note_sp_size)]
+    note_5s_extreme = [Note_5_extreme() for i in range(Pdm_Note.note_j_size)]
+    note_6s_extreme = [Note_6_extreme() for i in range(Pdm_Note.note_k_size)]
+    note_7s_extreme = [Note_7_extreme() for i in range(Pdm_Note.note_l_size)]
 
     frametime.frame_time = frametime.get_frame_time()
     frametime.current_time += frametime.frame_time
@@ -300,7 +300,7 @@ def update():
         note_7_extreme.update()
 
 
-    if (playtime > 400.0):
+    if (playtime > 330.0):
         playtime = 0
         game_framework.push_state(result_state)
     delay(0.01)
@@ -318,6 +318,7 @@ def draw():
     global plz
     clear_canvas()
 
+    life_gauge.draw()
     pdm.draw()
 
     machine_extreme.draw()
@@ -361,7 +362,7 @@ def draw():
 
     machine_key_extreme.draw()
     score_gauge.draw()
-    life_gauge.draw()
+
     #font.draw(50, 550, 'Ranking', (255, 0, 0))
     #plz.draw()
 

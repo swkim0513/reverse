@@ -47,7 +47,7 @@ class Note_S:
 
 
     def get_bb(self):
-        return self.x - 10, self.y - 20, self.x +10,self.y+20
+        return self.x - 10, self.y - 30, self.x +10,self.y + 30
 
 
     def draw_bb(self):

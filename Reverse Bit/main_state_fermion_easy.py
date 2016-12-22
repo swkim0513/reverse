@@ -10,6 +10,7 @@ import title_state_easy
 import result_state
 import frametime
 import Fermion_Note
+import result_score
 
 from note_S import Note_S
 from note_D import Note_D
@@ -43,8 +44,6 @@ score_1 = 0
 font = None
 plz = None
 
-
-
 class Effect_1():
     global x
     def __init__(self):
@@ -62,46 +61,43 @@ class Effect_2():
         self.image.clip_draw(0,0,60,60,x,100)
     def update(self):
         pass
-class Plz():
-    image = None
 
-    def __init__(self):
-        self.x,self.y = 400,300
-        self.time = 0
-
-    def update(self):
-        pass
+class Score:
+    global score_1
+    sc = 100
     def draw(self):
-        font.draw('ENCR10B.TTF','Ranking', (255, 0, 0))
+        font.draw(500, 50, 'SCORE : %8d' % score_1, (255, 255, 255))
 
 
 def create_world():
     global note_Ss,note_Ds,note_Fs,note_SPACEs,note_Js,note_Ks,note_Ls,note_Ns
-    global machine_key,effect_1,effect_2,score_gauge,fermion, life_gauge, machine,score
-    global plz
+    global machine_key,effect_1,effect_2,score_gauge,fermion, life_gauge, machine,game_draw_font
+    global plz, score
+    score = Score()
     machine = Machine()
 
     Fermion_Note.note_reset()
 
-    note_Ls = [Note_L() for i in range(10)]
-    note_Ss = [Note_S() for i in range(15)]
-    note_Ds = [Note_D() for i in range(10)]
-    note_Fs = [Note_F() for i in range(10)]
-    note_SPACEs = [Note_SPACE() for i in range(10)]
-    note_Js = [Note_J() for i in range(10)]
-    note_Ks = [Note_K() for i in range(10)]
 
+    note_Ss = [Note_S() for i in range(Fermion_Note.note_s_size)]
+    note_Ds = [Note_D() for i in range(Fermion_Note.note_d_size)]
+    note_Fs = [Note_F() for i in range(Fermion_Note.note_f_size)]
+    note_SPACEs = [Note_SPACE() for i in range(Fermion_Note.note_sp_size)]
+    note_Js = [Note_J() for i in range(Fermion_Note.note_j_size)]
+    note_Ks = [Note_K() for i in range(Fermion_Note.note_k_size)]
+    note_Ls = [Note_L() for i in range(Fermion_Note.note_l_size)]
 
     frametime.frame_time = frametime.get_frame_time()
     frametime.current_time += frametime.frame_time
-
+    life_gauge = Life_gauge()
     machine_key = Machine_key()
     effect_1 = Effect_1()
     effect_2 = Effect_2()
     score_gauge = Score_gauge()
     fermion = Fermion()
-    life_gauge = Life_gauge()
-    plz = Plz()
+
+
+
 
 
 
@@ -138,17 +134,22 @@ def collide(a, b):
 def enter():
     global note_Ss, note_Ds, note_Fs, note_SPACEs, note_Js, note_Ks, note_Ls
     global machine_key, effect_1, score_gauge, machine, life_gauge, fermion,font
-    global plz
+    global font
     create_world()
-    plz = Plz()
-    font = load_font('ENCR10B.TTF',30)
+    font = load_font('ENCR10B.TTF', 50)
+
 
 
 
 
 
 def exit():
+    global font,score_1
+
     destroy_world()
+    result_score.result = score_1
+    score_1 = 0
+    del(font)
     #del(font)
 
 def pause():
@@ -276,9 +277,12 @@ def update():
     global note_S,note_Ss, note_D,note_Ds, note_F,note_Fs,note_SPACE,note_SPACEs,note_J,note_Js, note_K,note_Ks,note_L,note_Ls
     global machine_key, effect_1,effect_2, score_gauge, fermion, life_gauge, machine_1
     global playtime
+    global game_draw_font
 
     frametime.frame_time = frametime.get_frame_time()
     frametime.current_time += frametime.frame_time
+
+
 
     for note_S in note_Ss:
         note_S.update()
@@ -296,7 +300,7 @@ def update():
         note_L.update()
 
 
-    if (playtime > 400.0):
+    if (playtime > 300.0):
         playtime = 0
         game_framework.push_state(result_state)
     delay(0.01)
@@ -311,18 +315,20 @@ def update():
 
 
 def draw():
-    global plz
     clear_canvas()
+    life_gauge.draw()
 
     fermion.draw()
     machine.draw()
+
+
     #machine.draw_bb()
 
 
     for note_S in note_Ss:
         note_S.draw()
-    for note_S in note_Ss:
-        note_S.draw_bb()
+    #for note_S in note_Ss:
+        #note_S.draw_bb()
 
     for note_D in note_Ds:
         note_D.draw()
@@ -359,10 +365,7 @@ def draw():
     machine_key.draw()
 
     score_gauge.draw()
-    life_gauge.draw()
-
-
-
+    score.draw()
 
     update_canvas()
 

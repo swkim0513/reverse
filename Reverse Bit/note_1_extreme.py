@@ -32,7 +32,7 @@ class Note_1_extreme:
     def update(self):
         distance = frametime.RUN_SPEED_PPS * frametime.frame_time
         self.y += (distance * 4)
-        print(self.y)
+
         delay(0.0001)
 
     #def remove(self):
@@ -43,7 +43,7 @@ class Note_1_extreme:
 
 
     def get_bb(self):
-        return self.x - 10, self.y - 20, self.x +10,self.y+20
+        return self.x - 10, self.y - 30, self.x +10,self.y+30
 
 
     def draw_bb(self):

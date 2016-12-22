@@ -34,15 +34,15 @@ class Note_L:
 
     def update(self):
         distance = frametime.RUN_SPEED_PPS * frametime.frame_time
-        self.y -= (distance * 3)
-        print(self.y)
+        self.y -= (distance * 4)
+
         delay(0.0001)
 
     def draw(self):
         self.image.clip_draw(0, 0, 50, 30, self.x, self.y)
 
     def get_bb(self):
-        return self.x - 10, self.y - 20, self.x + 10, self.y + 20
+        return self.x - 10, self.y - 30, self.x + 10, self.y + 30
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())

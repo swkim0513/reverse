@@ -66,34 +66,31 @@ class Effect_2():
         self.image.clip_draw(0,0,60,60,x,800)
     def update(self):
         pass
-class Plz():
-    image = None
 
-    def __init__(self):
-        self.x,self.y = 400,300
-        self.time = 0
-
-    def update(self):
-        pass
+class Score:
+    global score_1
+    sc = 100
     def draw(self):
-        font.draw('ENCR10B.TTF','Ranking', (255, 0, 0))
-
+        font.draw(500, 50, 'SCORE : %8d' % score_1, (255, 255, 255))
 
 def create_world():
     global note_1s_extreme,note_2s_extreme,note_3s_extreme,note_4s_extreme,note_5s_extreme,note_6s_extreme,note_7s_extreme
     global machine_key_extreme,effect_1,effect_2,score_gauge,fermion, life_gauge, machine_extreme,score
-    global plz
+    global plz, score
+    score = Score()
     machine_extreme = Machine_extreme()
 
     Fermion_Note.note_reset()
 
-    note_1s_extreme = [Note_1_extreme() for i in range(15)]
-    note_2s_extreme = [Note_2_extreme() for i in range(10)]
-    note_3s_extreme = [Note_3_extreme() for i in range(10)]
-    note_4s_extreme = [Note_4_extreme() for i in range(10)]
-    note_5s_extreme = [Note_5_extreme() for i in range(10)]
-    note_6s_extreme = [Note_6_extreme() for i in range(10)]
-    note_7s_extreme = [Note_7_extreme() for i in range(10)]
+
+
+    note_1s_extreme = [Note_1_extreme() for i in range(Fermion_Note.note_s_size)]
+    note_2s_extreme = [Note_2_extreme() for i in range(Fermion_Note.note_d_size)]
+    note_3s_extreme = [Note_3_extreme() for i in range(Fermion_Note.note_f_size)]
+    note_4s_extreme = [Note_4_extreme() for i in range(Fermion_Note.note_sp_size)]
+    note_5s_extreme = [Note_5_extreme() for i in range(Fermion_Note.note_j_size)]
+    note_6s_extreme = [Note_6_extreme() for i in range(Fermion_Note.note_k_size)]
+    note_7s_extreme = [Note_7_extreme() for i in range(Fermion_Note.note_l_size)]
 
     frametime.frame_time = frametime.get_frame_time()
     frametime.current_time += frametime.frame_time
@@ -104,7 +101,7 @@ def create_world():
     score_gauge = Score_gauge()
     fermion = Fermion()
     life_gauge = Life_gauge()
-    plz = Plz()
+
 
 
 
@@ -141,16 +138,17 @@ def collide(a, b):
 def enter():
     global note_1s_extreme, note_2s_extreme, note_3s_extreme, note_4s_extreme, note_5s_extreme, note_6s_extreme, note_7s_extreme
     global machine_key_extreme, effect_1, score_gauge, machine_extreme, life_gauge, fermion,font
-    global plz
     create_world()
-    plz = Plz()
-    font = load_font('ENCR10B.TTF',30)
+
+    font = load_font('ENCR10B.TTF',50)
 
 
 
 
 
 def exit():
+    global font
+    del(font)
     destroy_world()
     #del(font)
 
@@ -300,7 +298,7 @@ def update():
         note_7_extreme.update()
 
 
-    if (playtime > 400.0):
+    if (playtime > 300.0):
         playtime = 0
         game_framework.push_state(result_state)
     delay(0.01)
@@ -318,6 +316,7 @@ def draw():
     global plz
     clear_canvas()
 
+    life_gauge.draw()
     fermion.draw()
 
     machine_extreme.draw()
@@ -361,9 +360,10 @@ def draw():
 
     machine_key_extreme.draw()
     score_gauge.draw()
-    life_gauge.draw()
+
     #font.draw(50, 550, 'Ranking', (255, 0, 0))
     #plz.draw()
+    #score,draw()
 
 
     update_canvas()
